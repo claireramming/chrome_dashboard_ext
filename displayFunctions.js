@@ -127,7 +127,7 @@ function storeGameData(data) {
             away_logo: game.teams.away.logo,
             score_home: game.score.fulltime.home,
             score_away: game.score.fulltime.away,
-            game_day: new Intl.DateTimeFormat('en-US', {weekday:'long'}).format(game_date),
+            game_day: new Intl.DateTimeFormat('en-US', {weekday:'short'}).format(game_date),
             game_time: game_date.toLocaleTimeString("en-us", {timeStyle: "short"}),
         }
         games.push(g)
@@ -175,16 +175,20 @@ function showGameData(games) {
         } = game
         html += `
         <div class='game'>
-            <p class='game-day'>${game_day}</p>
-            <p class='game-time'>${game_time}</p>
-            <div class='versus'>
-                <img src=${home_logo} alt=${home_team}>
-                <span>v</span>
-                <img src=${away_logo} alt=${away_team}>
-            </div>`
-        if (score_home != null) {
-            html += `<p class='scores'>${score_home}-${score_away}</p>`
+            <img class='game-home' src=${home_logo} alt=${home_team}>
+            <img class='game-away' src=${away_logo} alt=${away_team}>
+            `
+        if (score_home == null) {
+            html += `
+            <p class='game-top'>${game_day}</p>
+            <p class='game-bottom'>${game_time}</p>
+            `
+        } else {
+            html += `
+            <p class='game-top'>${score_home}</p>
+            <p class='game-bottom'>${score_away}</p>`
         }
+            
         html += '</div>'
     })
     document.getElementById('games').innerHTML = html
