@@ -12,6 +12,7 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: 0px 0px 20px #242424;
+    font-family: 'Glory', sans-serif;
 }
 
 main {
@@ -31,13 +32,11 @@ div.top, div.bottom {
     justify-content: space-between;
 }
 
-h1.time {
+.time {
     text-align: center;
-    font-size: 2.3rem;
-}
-
-div#games {
-    font-size: 1.3rem;
+    font-size: 5em;
+    padding-top: 2em;
+    opacity: .7;
 }
 
 div#games {
@@ -84,6 +83,7 @@ div.game img {
 div.rank img {
     width: 25px;
     height: 25px;
+    margin-right: .5em;
 }
 
 div.game {
@@ -104,20 +104,36 @@ div.game:last-of-type {
     grid-row: 2;
 }
 
-.game-top {
+.game-day,
+.score-home {
     grid-column: 2;
-    align-self: center;
 }
 
-.game-bottom {
+.game-time,
+.score-away {
     grid-row: 2;
     grid-column: 2;
+}
+
+.game-day,
+.game-time {
+    font-size: 1.1rem; 
+}
+
+.game-day {align-self:end}
+
+.score-home,
+.score-away {
+    font-size: 1.5rem;
     align-self: center;
+    padding-left:.5em;
+    padding-right: .25em;
 }
 
 div.rank {
     display: flex;
     justify-content: center;
+    align-items: center;
     text-align: left;
 }
 

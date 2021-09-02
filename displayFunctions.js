@@ -180,13 +180,13 @@ function showGameData(games) {
             `
         if (score_home == null) {
             html += `
-            <p class='game-top'>${game_day}</p>
-            <p class='game-bottom'>${game_time}</p>
+            <p class='game-day'>${game_day}</p>
+            <p class='game-time'>${game_time}</p>
             `
         } else {
             html += `
-            <p class='game-top'>${score_home}</p>
-            <p class='game-bottom'>${score_away}</p>`
+            <p class='score-home'>${score_home}</p>
+            <p class='score-away'>${score_away}</p>`
         }
             
         html += '</div>'
